@@ -3,9 +3,21 @@ using CardGames.War.Api.Business;
 using CardGames.War.Api.Business.Interfaces;
 using CardGames.War.Api.DataAccess;
 using CardGames.War.Api.DataAccess.Interfaces;
+var MyAllowSpecificOrigins = "_myAllowSpecificOriginsForWarCardGameApp";
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("ApiDb");
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: MyAllowSpecificOrigins,
+                      policy =>
+                      {
+                          policy
+                            .WithOrigins("https://localhost:7140")
+                            .AllowAnyHeader()
+                            .AllowAnyMethod();
+                      });
+});
 
 // Add services to the container.
 

@@ -1,5 +1,6 @@
 ﻿using CardGames.War.Api.Business.Interfaces;
 using CardGames.War.Api.Models;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 
@@ -10,6 +11,7 @@ namespace CardGames.War.Api.Controllers
     /// </summary>
     [ApiController]
     [Route("api/game")]
+    [EnableCors("_myAllowSpecificOriginsForWarCardGameApp")]
     public class GameController : Controller
     {
         private readonly ILogger<GameController> _logger;
