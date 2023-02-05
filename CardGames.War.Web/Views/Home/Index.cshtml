@@ -1,11 +1,37 @@
-@{
+﻿@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+    <div class="row">
+        <button id="new-game" onclick="NewGame()">New game</button>
+    <button id="next-move" onclick="NextMove()">Next move(manual)</button>
+    <button id="next-move" onclick="StartAutoPlay()">START Autoplay</button>
+    <button id="next-move" onclick="StopAutoPlay()">STOP Autoplay</button>
+    </div>
+    
+    <div class="row">
+        <div class="col" id="player1-dashboard">
+            <h3>Player 1 </h3>
+            <h4># cards:<span id="player1-cards-number">-</span></h4>
+            <h4>Current card <span id="player1-current-card">-</span></h4>
+            <div id="player1-cards">
 
-<div>Graph API result</div>
-<div>@ViewData["GraphApiResult"]</div>
+            </div>
+        </div>
+        <div class="col" id="central-dashboard">
+            <div id="all-cards-container">
+            </div>
+        </div>
+        <div class="col" id="player2-dashboard">
+            <h3>Player 2</h3>
+            <h4># cards:<span id="player2-cards-number">-</span></h4>
+            <h4>Current card <span id="player2-current-card">-</span></h4>
+            <div id="player2-cards">
+            </div>
+        </div>
+    </div>
+
+@section Scripts{
+    <script type="text/javascript" src="~/js/wargame.js"></script>
+    <script type="text/javascript" src="~/js/wargame_card_generator.js"></script>
+}
