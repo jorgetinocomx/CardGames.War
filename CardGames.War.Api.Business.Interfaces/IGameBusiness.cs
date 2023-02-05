@@ -11,7 +11,8 @@ namespace CardGames.War.Api.Business.Interfaces
         /// Connects to database and transform some extracted database.
         /// </summary>
         /// <param name="newGameData">Required data to create a new game.</param>
-        public void NewGame(NewGameModel newGameData);
+        /// <returns>Game identifier generated.</returns>
+        public int NewGame(NewGameModel newGameData);
 
         /// <summary>
         /// Returns the score for an specific user.

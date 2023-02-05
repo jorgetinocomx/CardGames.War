@@ -44,14 +44,16 @@ namespace CardGames.War.Api.Business
         /// IMPLEMENTATION: Connects to database and start/create a new game.
         /// </summary>
         /// <param name="newGameData">Required data to create a new game.</param>
-        public void NewGame(NewGameModel newGameData)
+        /// <returns>Game identifier generated.</returns>
+        public int NewGame(NewGameModel newGameData)
         {
             var entityToBeStored = new Game()
             {
                 UserEmail = newGameData.UserEmail,
                 StartDate = DateTime.Now,
             };
-            _dataAccess.NewGame(entityToBeStored);
+            var storedEntity = _dataAccess.NewGame(entityToBeStored);
+            return storedEntity.Id;
         }
     }
 }

@@ -52,9 +52,9 @@ namespace CardGames.War.Api.Controllers
         {
             if (!ModelState.IsValid)
                 return BadRequest();
-            _business.NewGame(newGameData);
-            _logger.LogDebug($"A game was created for the user : {newGameData.UserEmail}");
-            return Ok();
+            var generatedGameID  = _business.NewGame(newGameData);
+            _logger.LogDebug($"The game{generatedGameID} was created for the user : {newGameData.UserEmail}");
+            return Ok(generatedGameID);
         }
     }
 }
