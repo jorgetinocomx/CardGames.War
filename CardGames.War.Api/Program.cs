@@ -1,7 +1,11 @@
+using Microsoft.EntityFrameworkCore;
 using CardGames.War.Api.Business;
 using CardGames.War.Api.Business.Interfaces;
+using CardGames.War.Api.DataAccess;
+using CardGames.War.Api.DataAccess.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
+var connectionString = builder.Configuration.GetConnectionString("ApiDb");
 
 // Add services to the container.
 
@@ -10,8 +14,13 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+
+// Add db services to SQL server
+builder.Services.AddDbContext<ApiDbContext>(options => options.UseSqlServer(connectionString));
+
 // Inject (create the instances) for the business and the data access layer.
 builder.Services.AddScoped<IGameBusiness, GameBusiness>();
+builder.Services.AddScoped<IGameData, GameData>();
 
 var app = builder.Build();
 
