@@ -3,7 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardGames.War.Web", "CardGames.War.Web\CardGames.War.Web.csproj", "{11294AA1-71CC-44A0-9DCA-6F30A9EB2F12}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CardGames.War.Web", "CardGames.War.Web\CardGames.War.Web.csproj", "{11294AA1-71CC-44A0-9DCA-6F30A9EB2F12}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CardGames.War.WebApp", "CardGames.War.WebApp", "{08126FAE-564A-43C5-B2A6-401F0127947F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CardGames.War.WebApi", "CardGames.War.WebApi", "{342F102B-E9D1-4A9D-8FAB-ADF85C48A3C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardGames.War.Api", "CardGames.War.Api\CardGames.War.Api.csproj", "{CDD8B3FD-26F5-4BA6-8F4E-964BA2C32F40}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardGames.War.Api.Business", "CardGames.War.Api.Business\CardGames.War.Api.Business.csproj", "{68A7A07B-6A86-49B4-9ECD-06F0BBDF75AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardGames.War.Api.Models", "CardGames.War.Api.Models\CardGames.War.Api.Models.csproj", "{69F28DBB-F806-4031-9B06-D6C93AE231B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardGames.War.Api.Business.Interfaces", "CardGames.War.Api.Business.Interfaces\CardGames.War.Api.Business.Interfaces.csproj", "{2E8718E5-F9BC-47AF-8C0D-FB408C4E69CE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +27,32 @@ Global
 		{11294AA1-71CC-44A0-9DCA-6F30A9EB2F12}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11294AA1-71CC-44A0-9DCA-6F30A9EB2F12}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{11294AA1-71CC-44A0-9DCA-6F30A9EB2F12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDD8B3FD-26F5-4BA6-8F4E-964BA2C32F40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDD8B3FD-26F5-4BA6-8F4E-964BA2C32F40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDD8B3FD-26F5-4BA6-8F4E-964BA2C32F40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDD8B3FD-26F5-4BA6-8F4E-964BA2C32F40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68A7A07B-6A86-49B4-9ECD-06F0BBDF75AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68A7A07B-6A86-49B4-9ECD-06F0BBDF75AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68A7A07B-6A86-49B4-9ECD-06F0BBDF75AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68A7A07B-6A86-49B4-9ECD-06F0BBDF75AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69F28DBB-F806-4031-9B06-D6C93AE231B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69F28DBB-F806-4031-9B06-D6C93AE231B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69F28DBB-F806-4031-9B06-D6C93AE231B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69F28DBB-F806-4031-9B06-D6C93AE231B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E8718E5-F9BC-47AF-8C0D-FB408C4E69CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E8718E5-F9BC-47AF-8C0D-FB408C4E69CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E8718E5-F9BC-47AF-8C0D-FB408C4E69CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E8718E5-F9BC-47AF-8C0D-FB408C4E69CE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{11294AA1-71CC-44A0-9DCA-6F30A9EB2F12} = {08126FAE-564A-43C5-B2A6-401F0127947F}
+		{CDD8B3FD-26F5-4BA6-8F4E-964BA2C32F40} = {342F102B-E9D1-4A9D-8FAB-ADF85C48A3C2}
+		{68A7A07B-6A86-49B4-9ECD-06F0BBDF75AB} = {342F102B-E9D1-4A9D-8FAB-ADF85C48A3C2}
+		{69F28DBB-F806-4031-9B06-D6C93AE231B7} = {342F102B-E9D1-4A9D-8FAB-ADF85C48A3C2}
+		{2E8718E5-F9BC-47AF-8C0D-FB408C4E69CE} = {342F102B-E9D1-4A9D-8FAB-ADF85C48A3C2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {814CE3D5-4B69-441B-9177-A4BCC5A6F73F}
