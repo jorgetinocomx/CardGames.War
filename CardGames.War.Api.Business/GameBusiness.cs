@@ -1,4 +1,6 @@
 ﻿using CardGames.War.Api.Business.Interfaces;
+using CardGames.War.Api.DataAccess.Interfaces;
+using CardGames.War.Api.Entities;
 using CardGames.War.Api.Models;
 
 namespace CardGames.War.Api.Business
@@ -8,15 +10,48 @@ namespace CardGames.War.Api.Business
     /// </summary>
     public class GameBusiness : IGameBusiness
     {
+        private IGameData _dataAccess;
 
-        public ScoreModel GetScore(string userEmail, string playerId)
+        /// <summary>
+        /// Inject the data access instance.
+        /// </summary>
+        /// <param name="dataAccess">Instanced data access.</param>
+        public GameBusiness(IGameData dataAccess)
         {
-            throw new NotImplementedException();
+            _dataAccess = dataAccess;
         }
 
+        /// <summary>
+        /// IMPLEMENTATION: Returns the score for an specific user.
+        /// </summary>
+        /// <param name="userEmail"></param>
+        /// <param name="playerId"></param>
+        /// <returns></returns>
+        public ScoreModel GetScore(string userEmail, string playerId)
+        {
+            var rawData = _dataAccess.GetWonGames(userEmail, playerId);
+            var winHistory = new List<DateTime>();
+            foreach (var item in rawData)
+            {
+                winHistory.Add(item.FinishDate.Value);
+            }
+            var score = new ScoreModel() { UserEmail = userEmail, WonDates = winHistory, PlayerName = playerId };
+            return score;
+        }
+
+
+        /// <summary>
+        /// IMPLEMENTATION: Connects to database and start/create a new game.
+        /// </summary>
+        /// <param name="newGameData">Required data to create a new game.</param>
         public void NewGame(NewGameModel newGameData)
         {
-            throw new NotImplementedException();
+            var entityToBeStored = new Game()
+            {
+                UserEmail = newGameData.UserEmail,
+                StartDate = DateTime.Now,
+            };
+            _dataAccess.NewGame(entityToBeStored);
         }
     }
 }

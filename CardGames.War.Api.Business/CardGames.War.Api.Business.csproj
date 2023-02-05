@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CardGames.War.Api.Business.Interfaces\CardGames.War.Api.Business.Interfaces.csproj" />
+    <ProjectReference Include="..\CardGames.War.Api.DataAccess.Interfaces\CardGames.War.Api.DataAccess.Interfaces.csproj" />
   </ItemGroup>
 
 </Project>
