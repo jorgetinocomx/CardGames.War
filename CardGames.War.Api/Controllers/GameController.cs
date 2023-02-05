@@ -56,5 +56,22 @@ namespace CardGames.War.Api.Controllers
             _logger.LogDebug($"The game{generatedGameID} was created for the user : {newGameData.UserEmail}");
             return Ok(generatedGameID);
         }
+
+        /// <summary>
+        /// Finisih a game and declare the winner.
+        /// </summary>
+        /// <param name="gameID">Game ID to finish.</param>
+        /// <param name="winner">Player ID who won the game.</param>
+        /// <returns>OK if the game was finished correctly.</returns>
+        [Route("finish")]
+        [HttpPut()]
+        public IActionResult Finish(int gameID, string winner)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest();
+            _business.FinishGame(gameID,winner);
+            _logger.LogDebug($"The game{gameID} has been finished");
+            return Ok();
+        }
     }
 }

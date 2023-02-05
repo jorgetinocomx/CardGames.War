@@ -55,5 +55,23 @@ namespace CardGames.War.Api.Business
             var storedEntity = _dataAccess.NewGame(entityToBeStored);
             return storedEntity.Id;
         }
+
+
+        /// <summary>
+        /// IMPLEMENTATION: Mark a game as finished and sets the winner.
+        /// </summary>
+        /// <param name="gameId">Game identifier.</param>
+        /// <param name="winner">Player ID who won the game.</param>
+        public void FinishGame(int gameId, string winner)
+        {
+            var entityToBeUpdated = _dataAccess
+                                        .Get()
+                                        .FirstOrDefault(game => game.Id == gameId);
+            if (entityToBeUpdated != null) {
+                entityToBeUpdated.Winner = winner;
+                entityToBeUpdated.FinishDate = DateTime.Now;
+                _dataAccess.Update(entityToBeUpdated);
+            }
+        }
     }
 }

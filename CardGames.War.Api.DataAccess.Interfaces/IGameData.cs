@@ -21,5 +21,16 @@ namespace CardGames.War.Api.DataAccess.Interfaces
         /// <returns>All won games for the specified player ID.</returns>
         public IEnumerable<Game> GetWonGames(string userEmail, string playerId);
 
+        /// <summary>
+        /// Gets the IQueryable object (used to perform some operations).
+        /// </summary>
+        public IQueryable<Game> Get();
+
+        /// <summary>
+        /// Updates the data in the db.
+        /// </summary>
+        /// <param name="updatedData">Data previously updated.</param>
+        public void Update(Game updatedData);
+
     }
 }

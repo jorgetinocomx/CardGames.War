@@ -21,5 +21,12 @@ namespace CardGames.War.Api.Business.Interfaces
         /// <param name="playerId"></param>
         /// <returns></returns>
         public ScoreModel GetScore(string userEmail, string playerId);
+
+        /// <summary>
+        /// Mark a game as finished and sets the winner.
+        /// </summary>
+        /// <param name="gameId">Game identifier.</param>
+        /// <param name="winner">Player ID who won the game.</param>
+        public void FinishGame(int gameId, string winner);
     }
 }

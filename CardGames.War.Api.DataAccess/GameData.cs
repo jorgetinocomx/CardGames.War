@@ -52,5 +52,25 @@ namespace CardGames.War.Api.DataAccess
                                .AsEnumerable();
             return itemsFound;
         }
+
+        /// <summary>
+        /// Gets the IQueryable object (used to perform some operations).
+        /// </summary>
+        public IQueryable<Game> Get()
+        {
+           return _context.Games.AsQueryable(); 
+        }
+
+
+        /// <summary>
+        /// Updates the data in the db.
+        /// </summary>
+        /// <param name="updatedData">Data previously updated.</param>
+        public void Update(Game updatedData)
+        {
+            _context
+                .Games.Update(updatedData);
+            _context.SaveChanges();
+        }
     }
 }
